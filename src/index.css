@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  body {
+    @apply antialiased transition-colors duration-300 selection:bg-cyan-500/30 selection:text-cyan-300;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0B1220;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1E2D4A;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #22D3EE;
+}
+
+/* Custom Glassmorphism Styles */
+.glass-panel {
+  @apply bg-navy-800/60 backdrop-blur-xl border border-navy-700/60 dark:bg-navy-800/60 dark:border-navy-700/60 bg-white/70 border-slate-200/80 shadow-lg shadow-black/5 dark:shadow-black/20;
+}
+
+.glass-card {
+  @apply bg-navy-850/70 dark:bg-navy-850/70 border border-navy-750/70 dark:border-navy-750/70 bg-white border-slate-200/90 shadow-md hover:border-cyan-400/50 dark:hover:border-cyan-400/50 hover:shadow-cyan-glow transition-all duration-300;
+}
+
+/* Gradient background utility */
+.bg-gradient-navy {
+  background: linear-gradient(135deg, #0B1220 0%, #111B2E 50%, #080D18 100%);
+}
+
+.light .bg-gradient-navy {
+  background: linear-gradient(135deg, #F8FAFC 0%, #EDF2F7 100%);
+}
+
+/* Small cyan underline bar for section titles */
+.section-heading {
+  @apply relative inline-block text-2xl md:text-3xl lg:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white pb-3;
+}
+
+.section-heading::after {
+  content: '';
+  @apply absolute bottom-0 left-0 h-1 w-14 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full shadow-cyan-glow-sm;
+}
+
+.section-heading-center::after {
+  @apply left-1/2 -translate-x-1/2;
+}
